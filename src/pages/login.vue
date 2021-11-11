@@ -5,7 +5,7 @@ import useAuth from "../composable/useAuth";
 import useError from "../composable/useError";
 
 
-const { isAuthenticated, login } = useAuth();
+const { isAuthenticated, login, signup } = useAuth();
 
 const username = ref("");
 const password = ref("");
@@ -15,7 +15,16 @@ const router = useRouter();
 
 const logginIn = async() => {
    await login(username.value, password.value);
-   if (isAuthenticated.value) {
+   goToHome;
+};
+
+const signingUp = async() => {
+   await signup(username.value, password.value);
+   goToHome();
+};
+
+const goToHome = () => {
+     if (isAuthenticated.value) {
       router.push("/");
    } else {
       setError("Invalid Username or Password");
@@ -38,11 +47,16 @@ const {ready, start, stop} = useTimeout(5000, {controls: true});
       class="flex flex-col p-4 space-y-4" >
       <input type="text" class="py-2 border-2 rounded-lg" placeholder="Username" v-model="username"/>
        <input type="password" class="py-2 border-2 rounded-lg" placeholder="Password" v-model="password"/>
+       <div class="flex space-x-2">
        <button type="submit" @submit.prevent="logginIn" 
-       
-       class="py-2 text-yellow-500 bg-blue-800 rounded-lg" >
+       class="w-1/2 py-2 text-yellow-500 bg-blue-800 rounded-lg" >
        Login
        </button>
+      <button  @click="signingUp" 
+       class="w-1/2 py-2 text-yellow-500 bg-yellow-200 rounded-lg" >
+       Sign Up
+       </button>
+       </div>
        </form>
    </div>
    <div v-if="!ready && error"

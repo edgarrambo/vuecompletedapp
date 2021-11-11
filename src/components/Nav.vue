@@ -20,7 +20,7 @@ const loggingOut = () => {
     <!-- added router link to basicrouter icon -->
     <router-link to="/">
     <h1 class="px-4 py-8 text-3xl font-thin tracking-tighter over:cursor-pointer
-     hover:bg-white hover:text-yellow-800">RealAuth
+     hover:bg-white hover:text-black">RealAuth
         <span class="font-normal">Vue</span>
     </h1>
     </router-link>
@@ -29,23 +29,23 @@ const loggingOut = () => {
         <!-- below are three different ways of routing, all are working -->
         <!-- notes for if need to reference later -->
         <router-link to="/">
-        <li class="px-4 py-8 hover:cursor-pointer hover:bg-white hover:text-yellow-800">Homepage</li>
+        <li class="px-4 py-8 hover:cursor-pointer hover:bg-white hover:text-black">Homepage</li>
         </router-link>
         <router-link :to="{name: 'About'}">
-         <li class="px-4 py-8 hover:cursor-pointer hover:bg-white hover:text-yellow-800">About</li>
+         <li class="px-4 py-8 hover:cursor-pointer hover:bg-white hover:text-black">About</li>
         </router-link>
         <router-link 
         v-if="!isAuthenticated"
         :to="{ path: '/login', name: 'Login'}">
-        <li class="px-4 py-8 hover:cursor-pointer hover:bg-white hover:text-yellow-800">Login</li>
+        <li class="px-4 py-8 hover:cursor-pointer hover:bg-white hover:text-black">Login</li>
         </router-link>
 
         <div v-else class="flex">
       <router-link  :to="{ path: '/secret', name: 'Secret'}">
-        <li class="px-4 py-8 hover:cursor-pointer hover:bg-white hover:text-yellow-800">Secret</li>
+        <li class="px-4 py-8 hover:cursor-pointer hover:bg-white hover:text-black">Secret</li>
         </router-link> 
         <button @click="loggingOut">
-        <li class="px-4 py-8 hover:cursor-pointer hover:bg-white hover:text-yellow-800">Log Out</li>
+        <li class="px-4 py-8 hover:cursor-pointer hover:bg-white hover:text-black">Log Out</li>
         </button>
         </div>
   

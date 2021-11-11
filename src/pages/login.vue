@@ -13,12 +13,13 @@ const password = ref("");
 const router = useRouter();
 
 
-const logginIn = () => {
-   login(username.value, password.value);
+const logginIn = async() => {
+   await login(username.value, password.value);
    if (isAuthenticated.value) {
       router.push("/");
    } else {
       setError("Invalid Username or Password");
+      start();
    }
 };
 
@@ -31,7 +32,6 @@ const {ready, start, stop} = useTimeout(5000, {controls: true});
 
 <template>
 <div class="flex flex-col items-center justify-center space-y-12 bg-gray-200 rounded min-h-screen-nonav">
-Logged in: {{ isAuthenticated}}
    <div class="flex items-center justify-center rounded-lg shadow-2xl ">
    <img class="h-64" src="../assets/bglogin.png" alt="Hello Holidays">
    <form  @submit.prevent="logginIn"

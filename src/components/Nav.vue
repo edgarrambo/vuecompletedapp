@@ -15,11 +15,12 @@ const loggingOut = () => {
 
 
 <template>
-<div class="font-extrabold text-yellow-500 bg-blue-800 ">
+<div class="font-extrabold text-green-500 bg-black ">
 <div class="container flex items-center justify-between mx-auto ">
     <!-- added router link to basicrouter icon -->
     <router-link to="/">
-    <h1 class="px-4 py-8 text-3xl font-thin tracking-tighter over:cursor-pointer hover:bg-white hover:text-yellow-800">FakeAuth
+    <h1 class="px-4 py-8 text-3xl font-thin tracking-tighter over:cursor-pointer
+     hover:bg-white hover:text-yellow-800">RealAuth
         <span class="font-normal">Vue</span>
     </h1>
     </router-link>

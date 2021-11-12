@@ -31,17 +31,17 @@ const loggingOut = () => {
         <router-link to="/">
         <li class="px-4 py-8 hover:cursor-pointer hover:bg-white hover:text-black">Homepage</li>
         </router-link>
-        <router-link :to="{name: 'About'}">
+        <router-link :to="{ name: 'About' }">
          <li class="px-4 py-8 hover:cursor-pointer hover:bg-white hover:text-black">About</li>
         </router-link>
         <router-link 
         v-if="!isAuthenticated"
-        :to="{ path: '/login', name: 'Login'}">
+        :to="{ path: '/login', name: 'Login' }">
         <li class="px-4 py-8 hover:cursor-pointer hover:bg-white hover:text-black">Login</li>
         </router-link>
 
         <div v-else class="flex">
-      <router-link  :to="{ path: '/secret', name: 'Secret'}">
+      <router-link  :to="{ path: '/secret', name: 'Secret' }">
         <li class="px-4 py-8 hover:cursor-pointer hover:bg-white hover:text-black">Secret</li>
         </router-link> 
         <button @click="loggingOut">

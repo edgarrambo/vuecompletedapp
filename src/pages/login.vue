@@ -1,5 +1,5 @@
 <script setup>
-import {ref} from "vue";
+import { ref } from "vue";
 import { useRouter} from "vue-router";
 import useAuth from "../composable/useAuth";
 import useError from "../composable/useError";
@@ -32,11 +32,11 @@ const goToHome = () => {
    }
 };
 
-const {error, setError } = useError();
+const { error, setError } = useError();
 
 import { useTimeout, promiseTimeout } from "@vueuse/core";
 
-const {ready, start, stop} = useTimeout(5000, {controls: true});
+const { ready, start, stop } = useTimeout(5000, {controls: true});
 </script>
 
 <template>

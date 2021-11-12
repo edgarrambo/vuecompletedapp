@@ -15,7 +15,7 @@ const router = useRouter();
 
 const logginIn = async() => {
    await login(username.value, password.value);
-   goToHome;
+   goToHome();
 };
 
 const signingUp = async() => {

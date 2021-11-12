@@ -2,7 +2,6 @@ import { ref } from "vue";
 import { signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut } from "firebase/auth";
 import { firebaseAuth } from "./useFirebase";
 import { async } from "@firebase/util";
-// import { async } from "@firebase/util";
 
 const isAuthenticated = ref(false);
 
@@ -38,7 +37,7 @@ const useAuth = () => {
     user.value = "";
   };
 
-  return { isAuthenticated, login,signup, logout, user };
+  return { isAuthenticated, login, signup, logout, user };
 };
 
 export default useAuth;

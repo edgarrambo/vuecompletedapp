@@ -6,8 +6,8 @@ import {
   GoogleAuthProvider,
   signInWithPopup,
 } from "firebase/auth";
+
 import { firebaseAuth } from "./useFirebase";
-// import { async } from "@firebase/util";
 
 const isAuthenticated = ref(false);
 
@@ -46,7 +46,7 @@ const googleLogin = async () => {
       user.value = credentials.user.email;
     }
   };
-  const logout = async() => {
+  const logout = async () => {
     await signOut(firebaseAuth);
     isAuthenticated.value = false;
     user.value = "";

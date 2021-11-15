@@ -1,6 +1,4 @@
-<script setup>
-
-</script>
+<script setup></script>
 
 <template>
 <div class="flex flex-col items-center justify-center space-y-12 h-screen-nonav">

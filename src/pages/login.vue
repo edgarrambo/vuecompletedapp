@@ -5,7 +5,7 @@ import useAuth from "../composable/useAuth";
 import useError from "../composable/useError";
 
 
-const { isAuthenticated, login, signup } = useAuth();
+const { isAuthenticated, login, signup, googleLogin } = useAuth();
 
 const username = ref("");
 const password = ref("");
@@ -13,15 +13,21 @@ const password = ref("");
 const router = useRouter();
 
 
-const logginIn = async() => {
+const logginIn = async () => {
    await login(username.value, password.value);
    goToHome();
 };
 
-const signingUp = async() => {
+const signingUp = async () => {
    await signup(username.value, password.value);
    goToHome();
 };
+
+const google = async () => {
+   await googleLogin();
+   goToHome();
+};
+
 
 const goToHome = () => {
      if (isAuthenticated.value) {
@@ -56,7 +62,13 @@ const { ready, start, stop } = useTimeout(5000, {controls: true});
        class="w-1/2 py-2 text-yellow-500 bg-yellow-200 rounded-lg" >
        Sign Up
        </button>
-       </div>
+        </div>
+       <button @click="google"
+       class="bg-white flex justify-center rounded-lg hover:bg-grey-300">
+       <img src="https://developers.google.com/identity/images/btn_google_signin_dark_normal_web.png"
+               alt="">
+      </button>
+      
        </form>
    </div>
    <div v-if="!ready && error"

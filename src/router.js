@@ -7,9 +7,7 @@ import Login from "./pages/login.vue";
 import Secret from "./pages/secret.vue";
 
 import NotFound from "./pages/404.vue";
-
 const { isAuthenticated } = useAuth();
-
 const routes = [
   {
     path: "/",

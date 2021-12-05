@@ -1,6 +1,5 @@
 <script setup>
 import { useRouter} from "vue-router";
-import { ref } from "vue";
 import { useForm, useField } from 'vee-validate';
 import * as yup from "yup";
 
@@ -67,7 +66,7 @@ const { ready, start } = useTimeout(5000, {controls: true});
       placeholder="Email"
       v-model="username"
       />
-      <span class="text-red-800 text-center text-xl bg-black">{{ emailError }}</span>
+      <span class="text-xl text-center text-red-800 bg-black">{{ emailError }}</span>
        <input 
        name="password"
        type="password" 
@@ -75,19 +74,19 @@ const { ready, start } = useTimeout(5000, {controls: true});
        placeholder="Password" 
        v-model="password"
        />
-      <span class="text-red-800 text-center text-xl bg-black px-4">{{ passwordError }}</span>
+      <span class="px-4 text-xl text-center text-red-800 bg-black">{{ passwordError }}</span>
        <div class="flex space-x-2">
        <button type="submit" @submit.prevent="logginIn" 
        class="w-1/2 py-2 text-yellow-500 bg-blue-800 rounded-lg" >
        Login
        </button>
       <button  @click="signingUp" 
-       class="w-1/2 py-2 text-yellow-500 bg-yellow-200 rounded-lg px-4" >
+       class="w-1/2 px-4 py-2 text-yellow-500 bg-yellow-200 rounded-lg" >
        Sign Up
        </button>
         </div>
        <button @click="google"
-       class="bg-white flex justify-center rounded-lg hover:bg-grey-300">
+       class="flex justify-center bg-white rounded-lg hover:bg-grey-300">
        <img src="https://developers.google.com/identity/images/btn_google_signin_dark_normal_web.png"
                alt="">
       </button>

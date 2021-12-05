@@ -1,8 +1,15 @@
 import { ref } from "vue";
-import { collection, query, orderBy, onSnapshot } from "firebase/firestore";
+import {
+  collection,
+  query,
+  orderBy,
+  onSnapshot,
+  addDoc,
+} from "firebase/firestore";
 
 import { db } from "./useFirebase";
 import useAuth from "./useAuth";
+import { async } from "@firebase/util";
 
 const { user } = useAuth();
 
@@ -19,7 +26,15 @@ const useChat = () => {
       messages.value.push({ id: doc.id, ...doc.data() });
     });
   });
-  return { messages, unsuscribe };
+
+  const sendMessage = async (message) => {
+    await addDoc(chatCollection, {
+      text: message,
+      author: user.value,
+      createdAt: new Date(),
+    });
+  };
+  return { messages, unsuscribe, sendMessage };
 };
 
 export default useChat;
